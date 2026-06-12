@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>She Can Foundation — Get in Touch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:     #C4556A;
+      --rose-lt:  #F2D6DC;
+      --rose-dk:  #8B2D40;
+      --cream:    #FBF7F4;
+      --ink:      #1C1410;
+      --ink-mid:  #5A4A44;
+      --ink-lt:   #9C8880;
+      --border:   #E8D8D0;
+      --success:  #3A7D5A;
+      --ff-head:  'Cormorant Garamond', Georgia, serif;
+      --ff-body:  'DM Sans', system-ui, sans-serif;
+      --r:        10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* ── top ribbon ── */
+    .ribbon {
+      background: var(--rose-dk);
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      font-family: var(--ff-body);
+    }
+
+    /* ── nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      font-family: var(--ff-head);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--rose-dk);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .logo span { color: var(--ink); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-mid);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+
+    /* ── hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .hero-left {
+      background: var(--rose-dk);
+      padding: 72px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 0; bottom: 0;
+      width: 60px;
+      background: var(--cream);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+    .eyebrow {
+      font-family: var(--ff-body);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rose-lt);
+      margin-bottom: 20px;
+    }
+    .hero-left h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 600;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .hero-left h1 em {
+      font-style: italic;
+      color: var(--rose-lt);
+    }
+    .hero-left p {
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      font-size: 14.5px;
+      max-width: 340px;
+      line-height: 1.7;
+    }
+    .trust-row {
+      display: flex;
+      gap: 28px;
+      margin-top: 36px;
+    }
+    .trust-item { text-align: left; }
+    .trust-item .num {
+      font-family: var(--ff-head);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--rose-lt);
+      line-height: 1;
+    }
+    .trust-item .label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+
+    .hero-right {
+      padding: 64px 56px 64px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── form card ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 32px rgba(28,20,16,0.07);
+      max-width: 440px;
+      width: 100%;
+    }
+    .form-card h2 {
+      font-family: var(--ff-head);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .form-card .sub {
+      color: var(--ink-lt);
+      font-size: 13.5px;
+      margin-bottom: 28px;
+    }
+
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 7px;
+    }
+    .field label .req { color: var(--rose); margin-left: 2px; }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 11px 14px;
+      font-family: var(--ff-body);
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(196,85,106,0.12);
+      background: #fff;
+    }
+    .field input.error,
+    .field textarea.error {
+      border-color: #d9534f;
+    }
+    .field .err-msg {
+      font-size: 12px;
+      color: #d9534f;
+      margin-top: 5px;
+      display: none;
+    }
+    .field .err-msg.show { display: block; }
+
+    .field textarea { min-height: 110px; }
+    .field select { appearance: none; cursor: pointer; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      border-radius: var(--r);
+      font-family: var(--ff-body);
+      font-size: 14.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .submit-btn:hover { background: var(--rose-dk); }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .privacy-note {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--ink-lt);
+      margin-top: 14px;
+    }
+
+    /* ── success state ── */
+    .success-screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .success-screen.show { display: flex; }
+    .check-circle {
+      width: 64px; height: 64px;
+      background: #EBF7F0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      animation: pop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .check-circle svg { animation: draw 0.5s ease 0.2s both; }
+    @keyframes draw {
+      from { stroke-dashoffset: 50; }
+      to   { stroke-dashoffset: 0; }
+    }
+    .success-screen h3 {
+      font-family: var(--ff-head);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .success-screen p {
+      color: var(--ink-mid);
+      font-size: 14px;
+      max-width: 300px;
+      margin-bottom: 24px;
+    }
+    .reset-btn {
+      background: none;
+      border: 1.5px solid var(--rose);
+      color: var(--rose);
+      border-radius: 8px;
+      padding: 9px 24px;
+      font-family: var(--ff-body);
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .reset-btn:hover { background: var(--rose); color: #fff; }
+
+    /* ── bottom mission strip ── */
+    .mission-strip {
+      background: var(--rose-lt);
+      padding: 48px 40px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .mission-strip blockquote {
+      font-family: var(--ff-head);
+      font-size: clamp(20px, 3vw, 30px);
+      font-style: italic;
+      color: var(--rose-dk);
+      max-width: 680px;
+      margin: 0 auto 12px;
+      line-height: 1.4;
+    }
+    .mission-strip cite {
+      font-family: var(--ff-body);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      font-style: normal;
+    }
+
+    /* ── footer ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 20px 40px;
+      font-size: 12.5px;
+    }
+    footer a { color: rgba(255,255,255,0.75); text-decoration: none; }
+    footer a:hover { color: var(--rose-lt); }
+
+    /* ── responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: unset; }
+      .hero-left {
+        padding: 48px 28px 64px;
+      }
+      .hero-left::after { display: none; }
+      .trust-row { flex-wrap: wrap; gap: 20px; }
+      .hero-right { padding: 36px 20px; }
+      .form-card { padding: 28px 22px; }
+      .mission-strip { padding: 36px 24px; }
+    }
+
+    /* ── loading spinner inside button ── */
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ribbon">
+    Govt. Registered NGO · Indian Society Act, 1860 · Empowering Women Across India
+  </div>
+
+  <nav>
+    <a class="logo" href="https://shecanfoundation.org/" target="_blank">She Can <span>Foundation</span></a>
+    <ul class="nav-links">
+      <li><a href="https://shecanfoundation.org/" target="_blank">Home</a></li>
+      <li><a href="https://shecanfoundation.org/our-story" target="_blank">Our Story</a></li>
+      <li><a href="https://shecanfoundation.org/our-certificate" target="_blank">Our Certificate</a></li>
+      <li><a href="https://shecanfoundation.org/donate" target="_blank">Donate</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="eyebrow">Empowering Women · Creating Equity</p>
+      <h1>Together<br>We Can <em>Change</em><br>the World</h1>
+      <p>We don't ask for much — just help us with what you can. Be it your money, your skill, or your time.</p>
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="num">∞</div>
+          <div class="label">Lives touched</div>
+        </div>
+        <div class="trust-item">
+          <div class="num">1860</div>
+          <div class="label">Act Registered</div>
+        </div>
+        <div class="trust-item">
+          <div class="num">100%</div>
+          <div class="label">Women-led</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="form-card">
+
+        <!-- FORM VIEW -->
+        <div id="formView">
+          <h2>Send us a message</h2>
+          <p class="sub">We read every message and will reply within 2 working days.</p>
+
+          <div class="field">
+            <label for="name">Full Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" />
+            <div class="err-msg" id="nameErr">Please enter your name.</div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+            <div class="err-msg" id="emailErr">Please enter a valid email address.</div>
+          </div>
+
+          <div class="field">
+            <label for="topic">I want to&hellip;</label>
+            <select id="topic" name="topic">
+              <option value="">Select a topic</option>
+              <option value="volunteer">Volunteer my time</option>
+              <option value="donate">Make a donation</option>
+              <option value="partner">Partner with She Can</option>
+              <option value="media">Media enquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Message <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Tell us how you'd like to help or what you'd like to know…"></textarea>
+            <div class="err-msg" id="msgErr">Please write a short message.</div>
+          </div>
+
+          <button class="submit-btn" id="submitBtn" type="button" onclick="handleSubmit()">
+            Send Message
+          </button>
+          <p class="privacy-note">🔒 Your information is never shared or sold.</p>
+        </div>
+
+        <!-- SUCCESS VIEW -->
+        <div class="success-screen" id="successView">
+          <div class="check-circle">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                 stroke="#3A7D5A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-dasharray="50" stroke-dashoffset="50">
+              <polyline points="5,15 11,21 23,9"/>
+            </svg>
+          </div>
+          <h3>Form Submitted Successfully</h3>
+          <p>Thank you for reaching out! The She Can Foundation team will be in touch with you soon.</p>
+          <button class="reset-btn" onclick="resetForm()">Send another message</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="mission-strip">
+    <blockquote>
+      "Together, we can break down barriers and empower women."
+    </blockquote>
+    <cite>— Reeta Mishra, Founder &amp; President, She Can Foundation</cite>
+  </div>
+
+  <footer>
+    <p>
+      © 2024 She Can Foundation · <a href="mailto:president@shecanfoundation.org">president@shecanfoundation.org</a>
+      · +91 82838 41830
+      · <a href="https://www.instagram.com/_shecanfoundation_" target="_blank">Instagram</a>
+      · <a href="https://www.linkedin.com/company/shecanfoundation" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    function validate() {
+      let ok = true;
+
+      const name = document.getElementById('name');
+      const nameErr = document.getElementById('nameErr');
+      if (!name.value.trim()) {
+        name.classList.add('error');
+        nameErr.classList.add('show');
+        ok = false;
+      } else {
+        name.classList.remove('error');
+        nameErr.classList.remove('show');
+      }
+
+      const email = document.getElementById('email');
+      const emailErr = document.getElementById('emailErr');
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRe.test(email.value.trim())) {
+        email.classList.add('error');
+        emailErr.classList.add('show');
+        ok = false;
+      } else {
+        email.classList.remove('error');
+        emailErr.classList.remove('show');
+      }
+
+      const message = document.getElementById('message');
+      const msgErr = document.getElementById('msgErr');
+      if (!message.value.trim()) {
+        message.classList.add('error');
+        msgErr.classList.add('show');
+        ok = false;
+      } else {
+        message.classList.remove('error');
+        msgErr.classList.remove('show');
+      }
+
+      return ok;
+    }
+
+    function handleSubmit() {
+      if (!validate()) return;
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Sending…';
+
+      // Simulate a brief network delay for realism
+      setTimeout(() => {
+        document.getElementById('formView').style.display = 'none';
+        const s = document.getElementById('successView');
+        s.classList.add('show');
+      }, 1200);
+    }
+
+    function resetForm() {
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('topic').value = '';
+      document.getElementById('message').value = '';
+      ['name','email','message'].forEach(id => {
+        document.getElementById(id).classList.remove('error');
+      });
+      ['nameErr','emailErr','msgErr'].forEach(id => {
+        document.getElementById(id).classList.remove('show');
+      });
+
+      document.getElementById('successView').classList.remove('show');
+      const fv = document.getElementById('formView');
+      fv.style.display = '';
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message';
+    }
+
+    // Live validation on blur
+    ['name','email','message'].forEach(id => {
+      document.getElementById(id).addEventListener('blur', () => validate());
+    });
+  </script>
+</body>
+</html>
