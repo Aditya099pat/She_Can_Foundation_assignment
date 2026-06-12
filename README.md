@@ -5,7 +5,7 @@ A responsive contact form webpage built for She Can Foundation, a government-reg
 
 ## Live Preview
 ```text
-[https://aditya099pat.github.io/KritiQ/](https://aditya099pat.github.io/She_Can_Foundation_assignment/)
+https://aditya099pat.github.io/She_Can_Foundation_assignment/
 ```
 
 ---
